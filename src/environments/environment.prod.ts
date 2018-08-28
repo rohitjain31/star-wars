@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: {
+    starwars: 'https://swapi.co/api'
+  }
 };
