@@ -1,0 +1,19 @@
+.search-container {
+    height: 100px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.search-container > label {
+    padding-right: 15px;
+}
+
+.btn-container {
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.btn-container > button > span {
+    font-size: 25px;
+    font-weight: bold;
+}

@@ -1,17 +1,17 @@
 <div class="login-wrapper">
     <form class="login">
         <section class="title">
-            Star Wars Details
+            {{ textKeys.appTitle }}
         </section>
         <div class="login-group">
             <input class="username" type="text" name="username" [(ngModel)]="username" placeholder="Username">
             <input class="password" type="password" name="password" [(ngModel)]="password" placeholder="Password">
 
             <div class="error active" *ngIf="!isAuthenticated">
-                Invalid Credential. Please try again!!
+                {{ textKeys.invalidCredential }}
             </div>
 
-            <button type="submit" class="btn btn-primary" (click)="onSubmit()">SUBMIT</button>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">{{ textKeys.submit }}</button>
         </div>
     </form>
 </div>

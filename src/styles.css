@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.keepMarginLeft {
+    margin-left: 50px;
+}
+
+.keepMarginTop {
+    margin-top: 5px;
+}

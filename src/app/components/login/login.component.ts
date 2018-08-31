@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TextKeys } from '../../utils/text-keys';
 
 import { AuthService } from '../../services/auth.service';
 
@@ -12,6 +13,8 @@ export class LoginComponent implements OnInit {
     public isAuthenticated = true;
     public username = '';
     public password = '';
+
+    public textKeys = TextKeys;
 
     public constructor(private authService: AuthService) { }
 

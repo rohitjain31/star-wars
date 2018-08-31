@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+
+<div class="search-container">
+    <label for="searc_planet"><b>Search Planets: </b></label>
+    <input type="text" placeholder="Search Planets" size="35">
+</div>
+
+<ng-container *ngIf="planets.results.length > 0">
+    <div *ngFor="let item of planets.results">
+        <app-planet-list-view
+            [planet]="item"
+        ></app-planet-list-view>
+    </div>
+
+    <div class="btn-container">
+        <button [disabled]="!planets.previous" (click)="onPrevClick()" class="btn btn-primary"><span><</span></button>
+        <button [disabled]="!planets.next" (click)="onNextClick()" class="btn btn-primary"><span>></span></button>
+    </div>
+</ng-container>
