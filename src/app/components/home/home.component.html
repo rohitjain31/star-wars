@@ -2,7 +2,7 @@
 
 <div class="search-container">
     <label for="searc_planet"><b>Search Planets: </b></label>
-    <input type="text" placeholder="Search Planets" size="35">
+    <input type="text" placeholder="Search Planets" size="35" (keyup)="searchTerm$.next($event.target.value)" />
 </div>
 
 <ng-container *ngIf="planets.results.length > 0">

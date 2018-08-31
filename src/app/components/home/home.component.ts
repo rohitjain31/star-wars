@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanetService } from '../../services/planet.service';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +15,17 @@ export class HomeComponent implements OnInit {
         previous: ''
     };
 
+    public searchTerm$ = new Subject<string>();
+
     public constructor(private planetService: PlanetService) { }
 
     public ngOnInit() {
         this.getPlanetList();
+
+        this.planetService.searchPlanet(this.searchTerm$)
+            .subscribe(res => {
+                this.planets = res;
+            });
     }
 
     private getPlanetList() {
