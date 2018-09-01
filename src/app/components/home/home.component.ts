@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanetService } from '../../services/planet.service';
 import { Subject } from 'rxjs/Subject';
+import { TextKeys } from '../../utils/text-keys';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
     public loading = false;
 
     public searchTerm$ = new Subject<string>();
+    public textKeys = TextKeys;
 
     public constructor(private planetService: PlanetService) { }
 
@@ -37,10 +39,12 @@ export class HomeComponent implements OnInit {
     }
 
     private getPlanetList() {
+        this.loading = true;
         this.planetService.getDefaultPlanet()
             .subscribe(res => {
                 this.planets = res;
                 this.getMaxPopulation();
+                this.loading = false;
             });
     }
 
@@ -50,18 +54,22 @@ export class HomeComponent implements OnInit {
     }
 
     public onNextClick() {
+        this.loading = true;
         this.planetService.getPlanetsByUrl(this.planets.next)
             .subscribe(res => {
                 this.planets = res;
                 this.getMaxPopulation();
+                this.loading = false;
             });
     }
 
     public onPrevClick() {
+        this.loading = true;
         this.planetService.getPlanetsByUrl(this.planets.previous)
             .subscribe(res => {
                 this.planets = res;
                 this.getMaxPopulation();
+                this.loading = false;
             });
     }
 

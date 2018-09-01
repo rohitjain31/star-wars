@@ -1,0 +1,6 @@
+.loading-container {
+    top: 75%;
+    position: absolute;
+    z-index: 1111;
+    left: 15%;
+}

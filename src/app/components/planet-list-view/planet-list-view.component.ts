@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TextKeys } from '../../utils/text-keys';
 
 @Component({
   selector: 'app-planet-list-view',
@@ -10,6 +11,7 @@ export class PlanetListViewComponent implements OnInit {
     @Input() public planet;
     @Input() public maximumPopulation;
 
+    public textKeys = TextKeys;
     public constructor() { }
 
     public ngOnInit() { }

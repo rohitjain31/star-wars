@@ -1,16 +1,14 @@
 <app-navbar></app-navbar>
 
 <div class="search-container">
-    <label for="searc_planet"><b>Search Planets: </b></label>
+    <label for="searc_planet"><b>{{ textKeys.searchPlanetLabel }}</b></label>
     <input type="text" placeholder="Search Planets" size="35" (keyup)="searchPlanet($event.target.value)" />
 </div>
 
 <div class="loading-overlay" [class.loading]="loading" *ngIf="loading"></div>
 
 <div class="loading-container" *ngIf="loading">
-    <span class="spinner">
-        Loading...
-    </span>
+    <span class="spinner"></span>
 </div>
 
 <ng-container *ngIf="planets.results.length > 0">
@@ -27,6 +25,6 @@
     </div>
 </ng-container>
 
-<div *ngIf="planets.results.length == 0" class="no-planet">
-    <b>There is no planet with this keyword. Please search another!!</b>
+<div *ngIf="planets.results.length == 0 && !loading" class="no-planet">
+    <b>{{ textKeys.noPlanetMessage }}</b>
 </div>

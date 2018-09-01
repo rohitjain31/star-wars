@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     public isAuthenticated = true;
     public username = '';
     public password = '';
+    public loading = false;
 
     public textKeys = TextKeys;
 
@@ -33,9 +34,11 @@ export class LoginComponent implements OnInit {
 
     public onSubmit() {
         this.isAuthenticated = true;
+        this.loading = true;
         this.authService.getUser(this.username)
             .subscribe(res => {
                 res.results.length > 0 ? this.checkPassword(res.results[0]) : this.isAuthenticated = false;
+                this.loading = false;
             });
     }
 
