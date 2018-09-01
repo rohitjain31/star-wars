@@ -17,8 +17,8 @@ export class PlanetListViewComponent implements OnInit {
     public ngOnInit() { }
 
     public getProgressValue() {
-        const population = this.planet.population === 'unknown' ? 0 : parseInt(this.planet.population);
-        return this.maximumPopulation ? (100/this.maximumPopulation)*population : 0;
+        const population = this.planet.population === 'unknown' ? 0 : parseInt(this.planet.population, 10);
+        return this.maximumPopulation ? (100 / this.maximumPopulation) * population : 0;
     }
 
 }

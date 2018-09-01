@@ -35,7 +35,9 @@ export class HomeComponent implements OnInit {
     }
 
     private getMaxPopulation() {
-        this.maxPopulation = Math.max.apply(null, this.planets['results'].map(e => e.population !== 'unknown' ? parseInt(e.population) : 0));
+        this.maxPopulation = Math.max.apply(null, this.planets['results'].map(
+            e => e.population !== 'unknown' ? parseInt(e.population, 10) : 0)
+        );
     }
 
     private getPlanetList() {

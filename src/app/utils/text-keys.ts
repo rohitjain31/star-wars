@@ -14,5 +14,5 @@ export class TextKeys {
     public static edited = 'Edited:';
     public static url = 'Url:';
     public static logout = 'Log out';
-    public static navBarTitle = 'Planets'
+    public static navBarTitle = 'Planets';
 }
