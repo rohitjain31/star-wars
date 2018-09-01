@@ -1,7 +1,8 @@
 .search-container {
-    height: 100px;
-    text-align: center;
-    padding-top: 50px;
+    height: 80px;
+    padding-top: 30px;
+    width: 80%;
+    margin: auto;
 }
 
 .search-container > label {
@@ -16,4 +17,35 @@
 .btn-container > button > span {
     font-size: 25px;
     font-weight: bold;
+}
+
+.no-planet {
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.loading-container {
+    top: 50%;
+    position: absolute;
+    z-index: 1111;
+    left: 50%;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(230, 235, 235);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+
+    &.loading {
+        z-index: 999;
+        opacity: 0.8;
+        transition: opacity 0.3s ease-in;
+    }
 }

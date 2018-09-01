@@ -2,13 +2,22 @@
 
 <div class="search-container">
     <label for="searc_planet"><b>Search Planets: </b></label>
-    <input type="text" placeholder="Search Planets" size="35" (keyup)="searchTerm$.next($event.target.value)" />
+    <input type="text" placeholder="Search Planets" size="35" (keyup)="searchPlanet($event.target.value)" />
+</div>
+
+<div class="loading-overlay" [class.loading]="loading" *ngIf="loading"></div>
+
+<div class="loading-container" *ngIf="loading">
+    <span class="spinner">
+        Loading...
+    </span>
 </div>
 
 <ng-container *ngIf="planets.results.length > 0">
     <div *ngFor="let item of planets.results">
         <app-planet-list-view
             [planet]="item"
+            [maximumPopulation]="maxPopulation"
         ></app-planet-list-view>
     </div>
 
@@ -17,3 +26,7 @@
         <button [disabled]="!planets.next" (click)="onNextClick()" class="btn btn-primary"><span>></span></button>
     </div>
 </ng-container>
+
+<div *ngIf="planets.results.length == 0" class="no-planet">
+    <b>There is no planet with this keyword. Please search another!!</b>
+</div>

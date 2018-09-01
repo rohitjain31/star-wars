@@ -1,3 +1,27 @@
 .auto-padding {
     padding: 10px 10px 0px 10px;
 }
+
+.planet-container {
+    width: 85%;
+    margin: auto;
+}
+
+.progress_bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.progress_bar > label {
+    float: left;
+}
+
+.progress {
+    width: 70%;
+}
+
+progress {
+    width: 80%;
+    float: right;
+}

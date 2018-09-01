@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
         next: '',
         previous: ''
     };
+    public maxPopulation = 0;
+    public loading = false;
 
     public searchTerm$ = new Subject<string>();
 
@@ -25,21 +27,33 @@ export class HomeComponent implements OnInit {
         this.planetService.searchPlanet(this.searchTerm$)
             .subscribe(res => {
                 this.planets = res;
+                this.getMaxPopulation();
+                this.loading = false;
             });
+    }
+
+    private getMaxPopulation() {
+        this.maxPopulation = Math.max.apply(null, this.planets['results'].map(e => e.population !== 'unknown' ? parseInt(e.population) : 0));
     }
 
     private getPlanetList() {
         this.planetService.getDefaultPlanet()
             .subscribe(res => {
-                console.log(res);
                 this.planets = res;
+                this.getMaxPopulation();
             });
+    }
+
+    public searchPlanet(val) {
+        this.loading = true;
+        this.searchTerm$.next(val);
     }
 
     public onNextClick() {
         this.planetService.getPlanetsByUrl(this.planets.next)
             .subscribe(res => {
                 this.planets = res;
+                this.getMaxPopulation();
             });
     }
 
@@ -47,6 +61,7 @@ export class HomeComponent implements OnInit {
         this.planetService.getPlanetsByUrl(this.planets.previous)
             .subscribe(res => {
                 this.planets = res;
+                this.getMaxPopulation();
             });
     }
 

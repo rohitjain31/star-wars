@@ -1,51 +1,60 @@
-<clr-stack-view class="auto-padding">
-    <clr-stack-block>
-        <clr-stack-label [style.fontSize.px]="20">{{ planet.name }}</clr-stack-label>
-        <clr-stack-content>{{ planet.population }}</clr-stack-content>
-
+<div class="planet-container">
+    <clr-stack-view class="auto-padding">
         <clr-stack-block>
-            <clr-stack-label>
-                <div class="keepMarginTop">
-                    <label><b>Rotation Period: </b></label>&nbsp;
-                    <span>{{ planet.rotation_period }}</span>
-
-                    <label class="keepMarginLeft"><b>Orbital Period: </b></label>&nbsp;
-                    <span>{{ planet.orbital_period }}</span>
-                </div>
-
-                <div class="keepMarginTop">
-                    <label><b>Diameter: </b></label>&nbsp;
-                    <span>{{ planet.diameter }}</span>
-
-                    <label class="keepMarginLeft"><b>Climate: </b></label>&nbsp;
-                    <span>{{ planet.climate }}</span>
-                </div>
-
-                <div class="keepMarginTop">
-                    <label><b>Gravity: </b></label>&nbsp;
-                    <span>{{ planet.gravity }}</span>
-
-                    <label class="keepMarginLeft"><b>terrain: </b></label>&nbsp;
-                    <span>{{ planet.terrain }}</span>
-                </div>
-            </clr-stack-label>
-
+            <clr-stack-label>{{ planet.name }}</clr-stack-label>
             <clr-stack-content>
-                <div class="keepMarginTop">
-                    <label><b>Created: </b></label>&nbsp;
-                    <span>{{ planet.created | date }}</span>
-                </div>
-
-                <div class="keepMarginTop">
-                    <label><b>Edited: </b></label>&nbsp;
-                    <span>{{ planet.edited | date }}</span>
-                </div>
-
-                <div class="keepMarginTop">
-                    <label><b>Url: </b></label>&nbsp;
-                    <span>{{ planet.url }}</span>
+                <div class="progress-block progress_bar">
+                    <label>{{ planet.population }}</label>
+                    <div class="progress">
+                        <progress [value]="getProgressValue()" max="100"></progress>
+                    </div>
                 </div>
             </clr-stack-content>
+
+            <clr-stack-block>
+                <clr-stack-label>
+                    <div class="keepMarginTop">
+                        <label><b>Rotation Period: </b></label>&nbsp;
+                        <span>{{ planet.rotation_period }}</span>
+
+                        <label class="keepMarginLeft"><b>Orbital Period: </b></label>&nbsp;
+                        <span>{{ planet.orbital_period }}</span>
+                    </div>
+
+                    <div class="keepMarginTop">
+                        <label><b>Diameter: </b></label>&nbsp;
+                        <span>{{ planet.diameter }}</span>
+
+                        <label class="keepMarginLeft"><b>Climate: </b></label>&nbsp;
+                        <span>{{ planet.climate }}</span>
+                    </div>
+
+                    <div class="keepMarginTop">
+                        <label><b>Gravity: </b></label>&nbsp;
+                        <span>{{ planet.gravity }}</span>
+
+                        <label class="keepMarginLeft"><b>terrain: </b></label>&nbsp;
+                        <span>{{ planet.terrain }}</span>
+                    </div>
+                </clr-stack-label>
+
+                <clr-stack-content>
+                    <div class="keepMarginTop">
+                        <label><b>Created: </b></label>&nbsp;
+                        <span>{{ planet.created | date }}</span>
+                    </div>
+
+                    <div class="keepMarginTop">
+                        <label><b>Edited: </b></label>&nbsp;
+                        <span>{{ planet.edited | date }}</span>
+                    </div>
+
+                    <div class="keepMarginTop">
+                        <label><b>Url: </b></label>&nbsp;
+                        <span>{{ planet.url }}</span>
+                    </div>
+                </clr-stack-content>
+            </clr-stack-block>
         </clr-stack-block>
-    </clr-stack-block>
-</clr-stack-view>
+    </clr-stack-view>
+</div>

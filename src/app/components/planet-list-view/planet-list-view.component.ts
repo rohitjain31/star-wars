@@ -8,10 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PlanetListViewComponent implements OnInit {
 
     @Input() public planet;
+    @Input() public maximumPopulation;
 
     public constructor() { }
 
-    public ngOnInit() {
+    public ngOnInit() { }
+
+    public getProgressValue() {
+        const population = this.planet.population === 'unknown' ? 0 : parseInt(this.planet.population);
+        return this.maximumPopulation ? (100/this.maximumPopulation)*population : 0;
     }
 
 }
