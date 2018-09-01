@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TextKeys } from '../../utils/text-keys';
 
 import { AuthService } from '../../services/auth.service';
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
     public textKeys = TextKeys;
 
-    public constructor(private authService: AuthService) { }
+    public constructor(private authService: AuthService,
+        private router: Router) { }
 
     public ngOnInit() {}
 
@@ -25,6 +27,8 @@ export class LoginComponent implements OnInit {
             this.isAuthenticated = false;
             return;
         }
+
+        this.router.navigate(['/planets']);
     }
 
     public onSubmit() {

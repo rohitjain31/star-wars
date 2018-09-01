@@ -5,6 +5,8 @@ import { ClarityModule } from '@clr/angular';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AuthService } from './services/auth.service';
 import { PlanetService } from './services/planet.service';
 
@@ -27,7 +29,8 @@ import { PlanetListViewComponent } from './components/planet-list-view/planet-li
     ClarityModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [
       AuthService,
